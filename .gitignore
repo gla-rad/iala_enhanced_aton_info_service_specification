@@ -1,0 +1,6 @@
+.venv/
+source/guideline/*.tmp
+pyproject.toml
+pdm.lock
+pandoc-crossref
+.pdm-python
