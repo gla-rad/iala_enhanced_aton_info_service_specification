@@ -1,4 +1,4 @@
-# IALA Service Specification for the Provision of AtoN Information to End-Users (DRAFT)
+# IALA Service Specification for Enhanced AtoN Information for AtoN Authorities (DRAFT)
 
 Interested in Enhanced AtoN information for AtoN Authorities? Then you've come to the right place!
 
