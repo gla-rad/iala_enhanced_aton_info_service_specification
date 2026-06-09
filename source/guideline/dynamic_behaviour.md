@@ -2,13 +2,13 @@
 
 # Service Dynamic Behaviour {#sec:dynamic_behaviour}
 
-This section describes the interactive behaviour of the operations between the service provider and the service consumers. The AtoN Information service supports two different types of operations, namely the client-initiated retrieval of AtoN information, and the subscription-based AtoN information distribution. Both are discussed in the following sections respectively.
+This section describes the interactive behaviour of the operations between the service provider and the service consumers. The Enhanced AtoN Information service supports two different types of operations, namely the client-initiated retrieval of AtoN information, and the subscription-based AtoN information distribution. Both are discussed in the following sections respectively.
 
 **Note**: The description of the behaviour of the aforementioned operations, is provided in an abstract manner, where generic actions are performed on technology-agnostic endpoints. The implementation of each of these operations is left to be decided by the extending service design documents. In addition, any specific authentication procedure that is being applied is out of scope of the service specification and should be described in the service designs of this service. 
 
 ## Client-initiated Retrieval of AtoN Information {#sec:dynamic_behaviour_client_init_retrieval}
 
-The client-initiated retrieval is triggered by the service consumer, when it issues request on the appropriate service provider operations (i.e. Get and Get Summary). This operation covers Use ***Case #1***, ***Use Case #2*** and ***Use Case #3***, as outlined in [@sec:use-cases]. All three use cases can be achieved by two methods; either by directly requesting specific S-201 datasets, using the operation parameters of the Get operation, or by first requesting the S-201 dataset summary information through the Get Summary operation, and then using the provided dataset reference identifiers, to retrieve the corresponding S-201 datasets. 
+The client-initiated retrieval is triggered by the service consumer, when it issues request on the appropriate service provider operations (i.e. Get and Get Summary). This operation covers Use ***Case #1***, as outlined in [@sec:use-cases]. All use cases can be achieved by two methods; either by directly requesting specific S-201 datasets, using the operation parameters of the Get operation, or by first requesting the S-201 dataset summary information through the Get Summary operation, and then using the provided dataset reference identifiers, to retrieve the corresponding S-201 datasets. 
 
 The first method is presented in [@fig:dynamic_behaviour_get_operation], where the service consumer uses directly the Get operation of the service provider. By utilising the available operation parameters such as the geometry and the time-period, only specific S-201 datasets matching the specified criteria and/or have updates on the specified time-period interval, will be retrieved, packaged into an S-100 Exchange Set, and returned as a response. 
 
@@ -34,7 +34,7 @@ As demonstrated in [@fig:dynamic_behaviour_get_summary_operation], the Get Summa
 
 ## Subscription-based AtoN Information Distribution {#sec:dynamic_behaviour_subscription_retrieval}
 
-The subscription on AtoN Information is an alternative method of data propagation, in which a service consumer actively registers its interest to receive updates either on a specific set or alternatively, on all available S-201 datasets. This operation covers Use ***Case #4***, as outlined in [@sec:use-cases].
+The subscription on AtoN Information is an alternative method of data propagation, in which a service consumer actively registers its interest to receive updates either on a specific set or alternatively, on all available S-201 datasets.
 
 [@fig:dynamic_behaviour_subscription_operation] illustrates the typical behaviour of the subscription operation. Initially, the service consumer is required to initiate the procedure through the Subscription operation of the service provider. By utilising the available operation parameters such as the geometry and the subscription period, only the specific S-201 datasets matching the specified criteria and have updates during the specified subscription interval will be covered. Once the subscription request has been received, processed and accepted by the service provider, a notification should be sent back to the service consumer, using its Subscription Notification operation. This notification will indicate that the requested subscription has commenced and should include a subscription identifier reference for the established subscription.
 

@@ -1,6 +1,6 @@
 # Introduction {#sec:introduction}
  
-This document describes the technical service for the provision of Marine Aids to Navigation (AtoN) information, following the IALA guideline G1128 [@cite:iala-g1128]. In the context of e-Navigation, there is a number of maritime services, each referencing a number of associated technical services. The technical services themselves are described in three levels:
+This document describes the technical service for the exchange of Enhanced Aids to Navigation (AtoN) Information for AtoN Authorities, following the IALA guideline G1128 [@cite:iala-g1128]. In the context of e-Navigation, there is a number of maritime services, each referencing a number of associated technical services. The technical services themselves are described in three levels:
 
 * Service specification (this document)
 
@@ -10,10 +10,9 @@ This document describes the technical service for the provision of Marine Aids t
 
 All the above documents are part of G1128 and are explained in that guideline.
 
-The AtoN information provision makes use of the IHO S-201 data model, which is outlined in the S-201 data product specification. According to the IHO, S-201 - Marine Aids to Navigation (AtoN) describes navigational features including lights and other navigation aids, both physical and virtual; temporary and seasonal marks; and local AIS application-specific messages. This information may be considered supplementary additional information that complements the ENC. This specific technical service may be referenced in other S-1xx product specifications and maritime services including MS12 - Nautical Publications and MS2 - AtoN.
+The exchange of Enhanced AtoN Information for AtoN Authorities makes use of the IALA S-201 data model, which is outlined in the S-201 data product specification. According to IALA, the S-201 - Aids to Navigation (AtoN) Information [@cite:iala-s201] data product provides a common structure for the exchange of information about AtoNs including metadata like maintenance schedules, equipment type such as battery and bulb types. This includes buoys, beacons, racons, lights, sound signals and AIS. The product specification can be used to exchange AtoN information in a consistent form between Lighthouse Authorities, Hydrographic Offices and other organisations to include commercial and professional agencies. This specific technical service may be referenced in other S-1xx product specifications and maritime services including MS12 - Nautical Publications and MS2 - AtoN.
 
 This service specification may be used with the Maritime Connectivity Platform (MCP), where the MCP would provide means of authentication of service providers and service consumers as well as means of service discoverability.
-
 
 ## Purpose of the Document {#sec:introduction_purpose}
 
