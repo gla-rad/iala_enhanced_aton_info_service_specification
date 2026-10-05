@@ -4,7 +4,7 @@
 
 This section describes the context of the service from an operational perspective.
 
-## Pre S-201 Operational Context {#sec:pres_125_operational_context}
+## Pre S-201 Operational Context {#sec:pres_201_operational_context}
 
 The current situation of sharing AtoN information is quite fragmented, with multiple point-to-point non-interoperable systems, manual steps and long production periods.
 
@@ -13,12 +13,13 @@ In many cases AtoN changes are shared via Notices-to-Mariners (NtM), which get p
 Even in the cases where certain administrations have progressed with their digitalisation efforts, introducing data sharing automation mechanisms, the system are primarily based on non-standardised data data structures. In addition, multiple levels of data access are employed to control the dissemination of information.
 
 End-Users include:
+
 * HOs
-* *Maintenance Companies/Contractors
-* *VTS (AtoN & Bathymetry)
-* *Requests for LoL information (including unlighted AtoN – mostly software charts/ECS) - Current electronic publications not in useful formats
+* Maintenance Companies/Contractors
+* VTS (AtoN & Bathymetry)
+* Requests for LoL information (including unlighted AtoN – mostly software charts/ECS) - Current electronic publications not in useful formats
 *	Port Authorities managing areas
-* *MRCC
+* MRCC
 
 ## Envisioned Operational Context {#sec:envisioned_operational_context}
 

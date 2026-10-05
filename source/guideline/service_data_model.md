@@ -14,9 +14,9 @@ Included in the service data model is a full description followed by specific ex
 
 Note that the S-100 specification [@cite:iho-s100] describes in Appendix 9-B how S-100 based data models shall be formulated in XML schema format.
 
-Since the main purpose of the discussed service is to provide enhanced AtoN information for AtoN authorities, the S-201 information should be packaged as S-100 datasets, alongside any necessary metadata and other support information. The S-100 data model specification [@cite:iho-s100] in Appendix 4aS-100 Part 17, introduces the Exchange Set data structure, precisely for supporting this functionality. To indicate that S-201 datasets are coupled with additional service metadata, we refer to the type S100ExchangeSet (see [@fig:s125_with_metadata]).
+Since the main purpose of the discussed service is to provide enhanced AtoN information for AtoN authorities, the S-201 information should be packaged as S-100 datasets, alongside any necessary metadata and other support information. The S-100 data model specification [@cite:iho-s100] in Appendix 4aS-100 Part 17, introduces the Exchange Set data structure, precisely for supporting this functionality. To indicate that S-201 datasets are coupled with additional service metadata, we refer to the type S100ExchangeSet (see [@fig:s201_with_metadata]).
 
-![S-201 dataset coupled with service metadata in an S-100 Exchange Set.](../../resources/S125WithMetadata.png){#fig:s125_with_metadata width=65%}
+![S-201 dataset coupled with service metadata in an S-100 Exchange Set.](../../resources/S201WithMetadata.png){#fig:s201_with_metadata width=65%}
 
 # Service Internal Data Model
 

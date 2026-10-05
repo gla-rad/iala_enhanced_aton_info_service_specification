@@ -12,9 +12,9 @@ This section aims at providing an overview of the main elements of the service. 
 
 ## The Enhanced AtoN Information Service {#sec:the_aton_information_service}
 
-In [@fig:s125_service_operations], below, an overview of the operations of the Enhanced AtoN Information service is shown.
+In [@fig:s201_service_operations], below, an overview of the operations of the Enhanced AtoN Information service is shown.
 
-![S-201 Service Operations Definition diagram.](../../resources/ServiceInterfaces.png){#fig:s125_service_operations}
+![S-201 Service Operations Definition diagram.](../../resources/ServiceInterfaces.png){#fig:s201_service_operations}
 
 <div id="html_table" caption="Service Operations Overview.">
 <table>

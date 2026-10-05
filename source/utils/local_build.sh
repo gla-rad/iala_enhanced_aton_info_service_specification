@@ -19,11 +19,11 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cd $SCRIPT_DIR/../..
 
 # Create a Virtual Directory for Python
-virtualenv .venv
+python -m virtualenv .venv
 source .venv/bin/activate
 
 # And install all the necessary dependencies
-ptyhon -m pip install --force-reinstall -U setuptools==81.0.0
+python -m pip install --force-reinstall -U setuptools==81.0.0
 python -m pip install python-docx==1.1.0
 python -m pip install docxcompose==1.4.0
 python -m pip install mermaid-cli
