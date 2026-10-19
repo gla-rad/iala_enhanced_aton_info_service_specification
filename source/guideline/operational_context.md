@@ -6,13 +6,30 @@ This section describes the context of the service from an operational perspectiv
 
 ## Pre S-201 Operational Context {#sec:pres_201_operational_context}
 
-The current situation of sharing AtoN information is quite fragmented, with multiple point-to-point non-interoperable systems, manual steps and long production periods.
+This service specification describes the mechanism in which AtoN authorities exchange the relevant AtoN information with other authorities within its area of responsibility, as well as internationally. Typically a national AtoN authorities are entrusted with the following responsibilities:
 
-In many cases AtoN changes are shared via Notices-to-Mariners (NtM), which get published and appended onto the List-of-Lights (LoL) nautical publications. LoL updates can then be synchronised with chat corrections, which get more widely distributed. However, this process could take months to be completed. 
+* Supervise and approve **all** AtoN in the area, including the territorial sea and the EEZ;
+* Establish, operate and fund the state AtoN in main routes, through-passages and safe anchorages;
+* Be the registered IHO producer (DK01) for **S-201** and in some cases **S-124 and S-125**.
+
+National AtoN Authorities (NAAs) collaborate closely with other Local AtoN Authorities (LAAs), exchanging information daily. As a principle, any entity that creates the need for marking also establishes, is also responsible for funding and maintaining it. This covers ports, bridges, offshore wind farms, offshore installations, cables and pipelines, aquaculture, and construction projects. Each such AtoN typically needs a permit by the NAA to be established, changed, moved or withdrawn. Owners must report faults **immediately**, and report the final repair as well. As a result, a large share of AtoN information originates *outside* the NAA. Regardless the NAA remains its authoritative source.
+
+Up to the introduction of S-201 however, the sharing of AtoN information is quite fragmented, with multiple point-to-point non-interoperable systems, manual steps and long production periods. In many cases AtoN changes are shared via Notices-to-Mariners (NtM), which get published and appended onto the List-of-Lights (LoL) nautical publications. LoL updates can then be synchronised with chat corrections, which get more widely distributed. However, this process could take up to several months to be completed.
 
 Even in the cases where certain administrations have progressed with their digitalisation efforts, introducing data sharing automation mechanisms, the system are primarily based on non-standardised data data structures. In addition, multiple levels of data access are employed to control the dissemination of information.
 
-End-Users include:
+| Function Name | Function Description |
+| --- | --- |
+| AtoN Provision | In line with IALA definition [@cite:iala-dict-2023}], competent AtoN authorities' mission is to deliver a reliable, efficient and cost-effective aids to navigation service for the benefit and safety of all mariners. |
+| AtoN Maintenance | State AtoN are serviced from operations centres and by the inspection vessels. Third-party AtoN are maintained by the owners or their contractors. |
+| AtoN Register | The NAA typically maintains an AtoN register and is considered as the authoritative source for all AtoN information in its area of responsibility. |
+| Status reports | LAAs, mariners, pilots, as well as the NAA's own field staff report by phone, e-mail or web form. Usually the NNA reviews the reports manually. |
+| NW/NtM Promulgation | NAAs typically produce Navigational Warnings (NW) and Notice to Mariners (NtM), promulgated via NAVTEX, VHF, web, APIs, or a daily bulletin via mailing lists. |
+| AtoN design-state to HO | Changes are passed to the HO  for ENC correction, typically without a standardised API-based data exchange. |
+
+: The typical functions of a National AtoN Authority. {#tbl:naa_pres_operational_functions}
+
+Typical End-Users include:
 
 * HOs
 * Maintenance Companies/Contractors
@@ -60,9 +77,12 @@ The table below defines the functional requirements, as there are defined in the
 | **Functional** | MS2-FR013 | Delivery Acknowledgement Request | The service is able to request a data delivery acknowledgement for any end-user. The requested acknowledgement should support multiple levels (receiving, reading etc.) | F011 |
 | **Functional** | MS2-FR014 | Delivery Acknowledgement Confirmation | The service provides a common but secure facility for all end-users to acknowledge the successful updates of AtoN information if requested. | F011 |
 | **Functional** | MS2-FR015 | Subscription Updates | The service is able to identify and contact the subscribed end-users to push updates on the requested dataset(s). | F012 |
-| **Functional** | MS2-FR016 | Input Automation | The service updates the advertised datasets, based on the AtoN status updates received. | F013 |
+| **Functional** | MS2-FR016 | Input Automation | The service updates the advertised datasets, based on the AtoN status updates received, including S-201 data (status changes, planned AtoN) received from authorised submitters such as AtoN owners, applicants and maintenance providers. | F013 |
 | **Functional** | MS2-FR017 | Change Log | The service allows data producers to track the record of changes to the advertised dataset(s) for any time interval required. | F015 |
 | **Functional** | MS2-FR018 | Change Log State | The service allows data producers to view the full state of the AtoN Information as provided to consumers at any past point in time. | F015 |
+| **Functional** | MS2-FR019 | Validation feedback | Each submission is validated (schema, known MRN, submitter's responsibility for the AtoN) and accepted or rejected with a reason. | UC #3, #4 |
+| **Functional** | MS2-FR020 | Persistent identification | Each AtoN is identified by an MRN assigned by the AtoN authority. The MRN is stable across dataset editions and is reusable in S-101, S-124 and S-125. | Lesson 1 |
+| **Functional** | MS2-FR021 | Multilingual text | Free-text information can be provided in the national language and English. | DK practice (Danish/English) |
 
 : Functional Requirements for the MS-2 – Aids to Navigation  Service. {#tbl:ms2-functional-requirements}
 
@@ -80,6 +100,9 @@ The table below defines non-functional requirements for the S-201 service, as th
 | **Non-functional** | MS2-NFR008 | Compression | The service is able transmit the data in compressed format, with the compression method (e.g., gzip) clearly indicated. | F001, F005, F008 |
 | **Non-functional** | MS2-NFR009 | Accessibility | The AtoN information is accessible as much as possible and modern APIs should be supported for machine-to-machine communication. | F005, F010, F013, F014 |
 | **Non-functional** | MS2-NFR010 | Compatibility | The service is compatible with as many end-user devices as possible and conforms to the latest relevant maritime standards (e.g. IEC 63173-2 (SECOM), S-100 (S-124, S-125, S-201, S-240)) | F005, F010, F013, F014 |
+| **Non-functional** | MS2-NFR011 | Scoped authorisation | Authorisation can be scoped to the AtoN or area a consumer or submitter is responsible for, not only "public" or "authority". | UC #3, #4 |
+| **Non-functional** | MS2-NFR012 | Auditability of inputs | All received submissions and acknowledgements are logged with submitter, time and content. This extends Change Log / Change Log State to inbound data. | UC #3; Marking Order § 13 |
+| **Non-functional** | MS2-NFR013 | Fallback | Unavailability of the service must not prevent reporting through established manual channels. Re-synchronisation after recovery is supported. | UC #3 |
 
 : Non-Functional Requirements for the MS-2 – Aids to Navigation Service. {#tbl:ms2-non-functional-requirements}
 
@@ -159,3 +182,68 @@ The following tables describe the operational activities of the service.
 
 **Post-conditions**: The correct AtoN status indication information is displayed.
 
+#### Use-case #3
+
+**Name**: Report AtoN status change from a third-party AtoN owner to the AtoN Authority
+
+**Description**: An AtoN owner/operator under permit reports a fault, temporary change or maintenance of one of its AtoN to the national AtoN Authority as structured S-201 data. Examples: a port authority, a bridge operator, an offshore wind farm operator or a construction project. The owner thereby meets its legal reporting obligation, and the Authority can update its authoritative dataset and trigger promulgation (S-124 NW, S-125) without manual data entry (only review and approval).
+
+**Actors**: AtoN owner/operator (or its maintenance contractor), AtoN Authority, AtoN information management system, MSI provider
+
+**Frequency of Use**: Event-driven. Triggered by a detected failure (remote monitoring or observation), a planned temporary change under permit, or maintenance work.
+
+**Pre-conditions**: The AtoN is registered with the AtoN Authority and carries an MRN assigned by the Authority. The owner is identified and authenticated, and is authorised to report only on the AtoN it owns. The Authority's service endpoint is known to the owner's system or discoverable in a service registry.
+
+**Ordinary Sequence**:
+
+  1. The owner detects a change in the status of an AtoN, e.g. light extinguished, buoy off station/drifting, AIS AtoN offline.
+  2. The owner's system encodes the change as S-201, referencing the AtoN by its MRN, with status, time of occurrence and expected time of maintenance, if known.
+  3. The data is pushed to the AtoN Authority's service, with a delivery acknowledgement requested.
+  4. The service validates the submission: known MRN, ownership, schema and plausibility. It acknowledges receipt.
+  5. The AtoN Authority verifies the change and updates its authoritative dataset. Subscribers are notified, and promulgation is triggered (S-124 navigational warning and/or S-125 status where relevant).
+  6. When the AtoN is restored, the owner repeats steps 1–4 with the restored status. The Authority cancels the related warning/status.
+
+**Alternative / Exception Sequence**:
+
+  * The MRN is unknown or not owned by the submitter: the submission is rejected with a reason, and the owner falls back to manual reporting.
+  * The service is unavailable: the owner falls back to manual reporting (phone/e-mail/web form). The manual report remains the legal fallback.
+
+**Post-conditions**: The authoritative S-201 dataset reflects the actual status of the AtoN within minutes of the event. A timestamped record of the owner's report and its acknowledgement exists for audit.
+
+#### Use-case #4
+
+**Name**: Submission and approval of planned AtoN changes (permit workflow)
+
+**Description**: A party that needs new, changed or withdrawn AtoN submits the proposed marking to the national AtoN Authority as S-201 data with candidate status. Examples: an offshore wind farm or cable developer, a port expanding its approach, or a construction project needing temporary/permanent marking. The Authority reviews the proposal and approves or amends it, and assigns MRNs. The approved AtoN are then taken into the authoritative dataset when commissioned. This replaces today's free-text applications and lets the approved design flow directly into Notices to Mariners and on to the HO (S-101) without manual data input.
+
+**Actors**: Applicant (future AtoN owner or its consultant), AtoN Authority, AtoN information management system, MSI provider
+
+**Frequency of Use**: Ad hoc. Each establishment, change, relocation or withdrawal of third-party AtoN requires a permit. Volumes are typically high during offshore wind and major infrastructure projects.
+
+**Pre-conditions**: The applicant is identified and authenticated. The proposal is encoded in S-201 using the candidate/planning status values:
+
+* *Candidate* for new AtoN;
+* *Candidate for Modification* for changes;
+* *Under Removal / Deletion* for withdrawals.
+
+Existing AtoN affected by the proposal are referenced by their MRN.
+
+**Ordinary Sequence**:
+
+  1. The applicant encodes the proposed marking as S-201: position, type, characteristics, operating period (e.g. seasonal or temporary), owner and maintainer. It is submitted to the AtoN Authority's service with an acknowledgement requested.
+  2. The service validates the submission (schema, completeness, references to existing AtoN) and acknowledges receipt.
+  3. The AtoN Authority reviews the proposal and approves it, or returns it with required amendments (also as S-201). On approval, it assigns MRNs to the new AtoN and records the permit conditions.
+  4. The approved AtoN are published in the authoritative dataset with a planned status and an effective date. This enables preliminary notice to mariners and allows the HO and other subscribers to prepare the S-101 update.
+  5. On commissioning, the owner confirms establishment (as in Use-case #3). The Authority changes the status to operational, and the change is promulgated.
+  6. For temporary marking, the same flow is used for removal at the end of the permitted period.
+
+**Alternative / Exception Sequence**:
+
+  * The proposal is rejected or needs amendment: the Authority returns it with reasons, and the applicant resubmits.
+  * The project is cancelled: the candidate features are withdrawn and never become authoritative.
+
+**Post-conditions**:
+
+* Approved AtoN exist in the authoritative dataset with Authority-assigned MRNs before they are physically established.
+* The owner, the Authority and downstream producers (NtM/S-125, HO/S-101) all work from the same structured description.
+* The permit record links to the AtoN by MRN.
