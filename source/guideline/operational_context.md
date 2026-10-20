@@ -6,30 +6,17 @@ This section describes the context of the service from an operational perspectiv
 
 ## Pre S-201 Operational Context {#sec:pres_201_operational_context}
 
-This service specification describes the mechanism in which AtoN authorities exchange the relevant AtoN information with other authorities within its area of responsibility, as well as internationally. Typically a national AtoN authorities are entrusted with the following responsibilities:
+This service specification describes the mechanism in which AtoN authorities exchange the relevant AtoN information with other authorities within their area of responsibility, as well as internationally. Typically a national AtoN authority is entrusted with three main responsibilities:
 
-* Supervise and approve **all** AtoN in the area, including the territorial sea and the EEZ;
-* Establish, operate and fund the state AtoN in main routes, through-passages and safe anchorages;
-* Be the registered IHO producer (DK01) for **S-201** and in some cases **S-124 and S-125**.
+1. Fund, establish, operate and maintain the state AtoN in main routes, through-passages and safe anchorages;
+2. Supervise and approve **all** AtoN in the area, including the territorial sea and the EEZ;
+3. Be the authoritative source of AtoN information and produce relevant Navigational Warnings (NW)/Notice to Mariners (NtM) when issues occur.
 
-National AtoN Authorities (NAAs) collaborate closely with other Local AtoN Authorities (LAAs), exchanging information daily. As a principle, any entity that creates the need for marking also establishes, is also responsible for funding and maintaining it. This covers ports, bridges, offshore wind farms, offshore installations, cables and pipelines, aquaculture, and construction projects. Each such AtoN typically needs a permit by the NAA to be established, changed, moved or withdrawn. Owners must report faults **immediately**, and report the final repair as well. As a result, a large share of AtoN information originates *outside* the NAA. Regardless the NAA remains its authoritative source.
+Competent National AtoN Authorities (NAAs) collaborate closely with Local AtoN Authorities (LAAs), within their area of responsibility, (in many cases) exchanging information daily. As a general principle, any entity that creates the need for establishing an AtoN, is also responsible for funding, deploying and maintaining it. This covers ports, bridges, offshore wind farms, offshore installations, cables and pipelines, aquaculture, construction projects etc. Each such AtoN typically needs a permit by the NAA to be established, changed, moved or withdrawn. Owners must report faults **immediately**, and report the final repair as well. As a result, a large share of AtoN information originates *outside* the NAA. Regardless the NAA remains its authoritative source.
 
-Up to the introduction of S-201 however, the sharing of AtoN information is quite fragmented, with multiple point-to-point non-interoperable systems, manual steps and long production periods. In many cases AtoN changes are shared via Notices-to-Mariners (NtM), which get published and appended onto the List-of-Lights (LoL) nautical publications. LoL updates can then be synchronised with chat corrections, which get more widely distributed. However, this process could take up to several months to be completed.
-
-Even in the cases where certain administrations have progressed with their digitalisation efforts, introducing data sharing automation mechanisms, the system are primarily based on non-standardised data data structures. In addition, multiple levels of data access are employed to control the dissemination of information.
-
-| Function Name | Function Description |
-| --- | --- |
-| AtoN Provision | In line with IALA definition [@cite:iala-dict-2023}], competent AtoN authorities' mission is to deliver a reliable, efficient and cost-effective aids to navigation service for the benefit and safety of all mariners. |
-| AtoN Maintenance | State AtoN are serviced from operations centres and by the inspection vessels. Third-party AtoN are maintained by the owners or their contractors. |
-| AtoN Register | The NAA typically maintains an AtoN register and is considered as the authoritative source for all AtoN information in its area of responsibility. |
-| Status reports | LAAs, mariners, pilots, as well as the NAA's own field staff report by phone, e-mail or web form. Usually the NNA reviews the reports manually. |
-| NW/NtM Promulgation | NAAs typically produce Navigational Warnings (NW) and Notice to Mariners (NtM), promulgated via NAVTEX, VHF, web, APIs, or a daily bulletin via mailing lists. |
-| AtoN design-state to HO | Changes are passed to the HO  for ENC correction, typically without a standardised API-based data exchange. |
-
-: The typical functions of a National AtoN Authority. {#tbl:naa_pres_operational_functions}
-
-Typical End-Users include:
+ AtoN changes and/or discrepancies are most commonly communicated via NW/NtM, which get published and subsequently appended onto chart corrections, which get more widely distributed. Chart corrections may then also be synchronised with updates on the List-of-Lights (LoL) nautical publications, when necessary. Up until now however, the sharing of AtoN information is quite fragmented, with multiple point-to-point non-interoperable systems, manual steps and long production periods.
+ 
+The end-to-end data sharing between the NAA and the end-users of its AtoN information could take up to several months. These list of end-users includes, but is not necessarily limited to:
 
 * HOs
 * Maintenance Companies/Contractors
@@ -38,17 +25,30 @@ Typical End-Users include:
 *	Port Authorities managing areas
 * MRCC
 
+Even in the cases where certain AtoN authorities have progressed with their digitalisation efforts by introducing automated data-sharing mechanisms, the employed systems are primarily based on non-standardised data data structures. In addition, multiple levels of data access are employed to control the dissemination of information. This complicates the operation and makes it harder to administer it. Overall, the exchange of AtoN information involves the functions shown in [@tbl:naa_pres_operational_functions], may of which are typically supported by digital services.
+
+| Function Name | Function Description |
+| --- | --- |
+| AtoN Provision | In line with IALA definition [@cite:iala-dict-2023}], competent AtoN authorities' mission is to deliver a reliable, efficient and cost-effective aids to navigation service for the benefit and safety of all mariners. |
+| AtoN Maintenance | AtoN belonging to the competent authorities are serviced from operations centres and by the inspection vessels. Third-party AtoN are maintained by the owners or their contractors. |
+| AtoN Register | The NAA typically maintains an AtoN register and is considered as the authoritative source for all AtoN information in its area of responsibility. |
+| Status reports | LAAs, mariners, pilots, as well as the competent authority's own field staff report by phone, e-mail or web form. Usually the NAA reviews the reports manually. |
+| NW/NtM Production | NAAs may produce Navigational Warnings (NW) and Notice to Mariners (NtM), promulgated via NAVTEX, VHF, web, APIs, or a daily bulletin via mailing lists. |
+| AtoN design-state to HO | Changes are passed to the HO  for ENC correction, typically without a standardised API-based data exchange. |
+
+: The typical functions of a National AtoN Authority. {#tbl:naa_pres_operational_functions}
+
 ## Envisioned Operational Context {#sec:envisioned_operational_context}
 
-A standardized structured AtoN information format would enable compatible systems to exchange AtoN information seamlessly. Each AtoN Administration may have a unique AtoN Information Management System. This system however, should be able to automatically promulgate AtoN data from the authoritative source, for use by national and local authorities (e.g. Coastal State Authorities, Harbor and Port Authorities), public, as well as being available for use by maintenance providers and commercial contractors. 
+A standardized AtoN data format would enable compatible systems to exchange AtoN information seamlessly. Each AtoN authority may operate a different AtoN information management system. This system however, should be able to automatically propagate AtoN information from the authoritative source, for use by other national and local authorities (e.g. maritime authorities, harbor and port authorities), as well as making it available to maintenance providers and commercial contractors, or potentially even the public. 
 
-AtoN Administrations will administer and publish local AtoN data, for their area of responsibility. Typically this includes areas within that state’s exclusive economic zone. Where appropriate they should coordinate with adjacent or overlapping AtoN Administrations who share responsibility within the same waterway.  (e.g. Both the U.S. Coast Guard and Canadian Coast Guard maintain aids to navigation within the waterways comprising the Great Lakes.) The service instance descriptions will provide detailed information of coverage area available to users.
+AtoN authorities administer and publish local AtoN data, for their area of responsibility. Typically this includes areas within that state’s exclusive economic zone. Where appropriate they should coordinate with adjacent or overlapping AtoN authorities who share responsibility within the same waterway (e.g. Both the U.S. Coast Guard and Canadian Coast Guard maintain aids to navigation within the waterways comprising the Great Lakes.). The service instance descriptions will provide detailed information of coverage area available to users.
 
-![Example of the AtoN information flow, as per [@cite:iala-ms2].](../../resources/AtoNInfoDistribution.png){#fig:ms_aton_information_flow}
+![Example of the AtoN information flow, as per [@cite:iala-ms2].](../../resources/AtoNInfoDistribution.png){#fig:ms2_aton_information_flow}
 
-The service described in this specification defines the exchange of enhanced AtoN information using S-201 between a service provider and the end-user of such a service. In the most common case, according to the IALA interpretation of the IMO *MS-2 Aids to Navigation* maritime service [@cite:iala-ms2], as illustrated in [@fig:ms_aton_information_flow], the end user will be a member of staff of another Lighthouse Authority or a Hydrographic Office. It may also be used to harmonise the exchange of AtoN information between the various stakeholders in the data distribution chain before it is propagated towards the mariners.
+This service specification defines the exchange of enhanced AtoN information using S-201 between a service provider and the end-user of such a service. In line with the IALA interpretation of the IMO *MS-2 Aids to Navigation* maritime service [@cite:iala-ms2], as illustrated in [@fig:ms2_aton_information_flow], the end-user will be a member of staff of another AtoN authority or a HO. The S-201 data product has been specifically designed for that purpose and may contain sensitive maintenance information that should **not** be made available to external parties. Therefore it is strongly advised that this service specification is not to be used for any AtoN information exchange outside the circle of authorities shown in [@fig:ms2_aton_information_flow].
 
-Depending on the specific requirements, the service usage patterns may differ. For example, a Hydrographic Office could pull all available data and subscribe to updates from a data producer (e.g. national AtoN authority) and redistribute the data to the RENCs via S-101 and S-125 (after applying validation checks or optimising the data for a specific group of end-users). The orchestration of multiple AtoN information services in the distribution chain, however, is not in the scope of this document and lies within the responsibility of the service provider(s).
+Depending on the specific use case requirements, the service usage patterns may differ. For example, a HO could pull all available data and subscribe to updates from a data producer (e.g. NAA) and redistribute the data to the RENCs via S-101 and S-125 (after applying validation checks or optimising the data for a specific group of end-users). The orchestration of multiple AtoN information services in the distribution chain, however, is not in the scope of this document and lies within the responsibility of the service provider(s).
 
 ### Relationships between S-S201 and S-101, S-124, S-125 {#sec:relationship_124_s125_s201}
 
@@ -56,11 +56,11 @@ IHO has produced guidance on the interoperability between S-201 and the S-101, S
 
 ### Discoverability and Dissemination {#sec:discoverability_and_dissemination}
 
-The S-201 data should be discoverable only by Hydrographic Offices, Coastal State Authorities and other relevant authorised organisations. S-201 data should enhance S-101 ENC, S-124 NW and S-125 AtoN digital services, especially by reducing the effort in the transformation of data, with the harmonization of data models. This could be accomplished by introducing efficient data exchange mechanism between authorities.
+The S-201 data should be discoverable **only** by HO, maritime authorities and other relevant authorised organisations. HOwever, discoverability should be make possible through a dynamic mechanisms to allow the automatic recovery after any potential availability incidents. S-201 data exchange may also enhance S-101 ENC, S-124 NW and S-125 AtoN digital services, by reducing the effort of the data mapping process, through the harmonization of data models.
 
 ## Functional and Non-functional Requirements {#sec:functional_non_functional_reqs}
 
-The table below defines the functional requirements, as there are defined in the IALA documentation for the IMO MS-2 Aids to Navigation Maritime Service [@cite:iala-ms2]. Please note that the feature identifiers referenced in [@tbl:ms2-functional-requirements], are also referring to service features identified in the IALA MS-2 specification document.
+The table below defines the functional requirements, as they are defined in the IALA documentation for the IMO MS-2 Aids to Navigation Maritime Service [@cite:iala-ms2]. Please note that the feature identifiers referenced in [@tbl:ms2-functional-requirements], are also referring to service features identified in the IALA MS-2 specification document.
 
 | Requirement Type | Requirement ID | Requirement Name | Requirement Text | Feature Identifier |
 | --- | --- | --- | --- | --- |
@@ -86,7 +86,7 @@ The table below defines the functional requirements, as there are defined in the
 
 : Functional Requirements for the MS-2 – Aids to Navigation  Service. {#tbl:ms2-functional-requirements}
 
-The table below defines non-functional requirements for the S-201 service, as these are defined in the IALA documentation for the IMO MS-2 Aids to Navigation Maritime Service [@cite:iala-ms2]. Please note that the feature identifiers referenced in [@tbl:ms2-non-functional-requirements], are also referring to service features identified in the IALA MS-2 specification document.
+The table below defines non-functional requirements for the S-201 service, as they are defined in the IALA documentation for the IMO MS-2 Aids to Navigation Maritime Service [@cite:iala-ms2]. Please note that the feature identifiers referenced in [@tbl:ms2-non-functional-requirements], are also referring to service features identified in the IALA MS-2 specification document.
 
 | Requirement Type | Requirement ID | Requirement Name | Requirement Text | Feature Identifier |
 | --- | --- | --- | --- | --- |
@@ -118,7 +118,7 @@ The following tables describe the operational nodes of the service.
 
 | Operational Node | Remarks |
 | --- | --- |
-| ***AtoN Administration – AtoN Information Management System*** | The AtoN Information Management System collects all AtoN Information available from its Authoritative Source (AtoN Administration). |
+| ***AtoN Authority – AtoN Information Management System*** | The AtoN Information Management System collects all AtoN Information available from its Authoritative Source (AtoN Administration). |
 | ***Coastal State Authority*** | Governmental Agency responsible for overseeing vessel arrival within a respective area. Should facilitate dissemination of S-201. | 
 | ***Discoverable Service*** | S-201 services must be discoverable and may be operated by public or private entities. |
 | ***Service Consumer*** | Consumers of S-201 service. This includes only state authorities and relevant organisations such as Hydrographic Offices and Coastal State Authorities. |

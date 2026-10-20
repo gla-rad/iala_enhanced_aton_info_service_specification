@@ -56,6 +56,8 @@ The following definitions describe terms used in this specification:
 
 * **Navigational Warning (NW)** - A broadcast message containing urgent information relevant to safe navigation.
 
+* **Notice to Mariners (NtM)** - An official publication or bulletin issued regularly by hydrographic and maritime authorities to provide critical safety updates, corrections to nautical charts, changes to AtoN, and warnings about new hazards at sea.
+
 * **Maritime Safety Information (MSI)** - Navigational and meteorological warnings, meteorological forecasts and other urgent safety-related messages.
 
 * **Navaid** - An instrument, device or nautical publication carried on board a vessel for the purpose of assisting navigation.
