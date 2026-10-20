@@ -8,7 +8,7 @@ This section describes the context of the service from an operational perspectiv
 
 This service specification describes the mechanism in which AtoN authorities exchange the relevant AtoN information with other authorities within their area of responsibility, as well as internationally. Typically a national AtoN authority is entrusted with three main responsibilities:
 
-1. Fund, establish, operate and maintain the state AtoN in main routes, through-passages and safe anchorages;
+1. Fund, establish, operate and maintain the national AtoN in main routes, through-passages and safe anchorages;
 2. Supervise and approve **all** AtoN in the area, including the territorial sea and the EEZ;
 3. Be the authoritative source of AtoN information and produce relevant Navigational Warnings (NW)/Notice to Mariners (NtM) when issues occur.
 
@@ -56,7 +56,7 @@ IHO has produced guidance on the interoperability between S-201 and the S-101, S
 
 ### Discoverability and Dissemination {#sec:discoverability_and_dissemination}
 
-The S-201 data should be discoverable **only** by HO, maritime authorities and other relevant authorised organisations. HOwever, discoverability should be make possible through a dynamic mechanisms to allow the automatic recovery after any potential availability incidents. S-201 data exchange may also enhance S-101 ENC, S-124 NW and S-125 AtoN digital services, by reducing the effort of the data mapping process, through the harmonization of data models.
+The S-201 data should be discoverable **only** by HO, maritime authorities and other relevant authorised organisations. However, discoverability should be make possible through a dynamic mechanisms to allow the automatic recovery after any potential availability incidents. S-201 data exchange may also enhance S-101 ENC, S-124 NW and S-125 AtoN digital services, by reducing the effort of the data mapping process, through the harmonization of data models.
 
 ## Functional and Non-functional Requirements {#sec:functional_non_functional_reqs}
 
@@ -119,7 +119,7 @@ The following tables describe the operational nodes of the service.
 | Operational Node | Remarks |
 | --- | --- |
 | ***AtoN Authority – AtoN Information Management System*** | The AtoN Information Management System collects all AtoN Information available from its Authoritative Source (AtoN Administration). |
-| ***Coastal State Authority*** | Governmental Agency responsible for overseeing vessel arrival within a respective area. Should facilitate dissemination of S-201. | 
+| ***Maritime Authority*** | Governmental agency responsible for overseeing vessel arrival within a respective area. Should facilitate dissemination of S-201. | 
 | ***Discoverable Service*** | S-201 services must be discoverable and may be operated by public or private entities. |
 | ***Service Consumer*** | Consumers of S-201 service. This includes only state authorities and relevant organisations such as Hydrographic Offices and Coastal State Authorities. |
 
@@ -144,7 +144,7 @@ The following tables describe the operational activities of the service.
 
 #### Use-case #1
 
-**Name**: Retrieve AtoN status indication information for portrayal by a Hydrographic Office
+**Name**: Retrieve AtoN status indication information for charting  by a Hydrographic Office
 
 **Description**: Retrieve and portray changes on the design state of AtoN for charting.
 
@@ -164,7 +164,7 @@ The following tables describe the operational activities of the service.
 
 #### Use-case #2
 
-**Name**: Retrieve AtoN status indication information for portrayal by an ECS Provider
+**Name**: Retrieve AtoN status indication information for charting by an ECS Provider
 
 **Description**: Retrieve and portray changes on the design state of AtoN for charting.
 
