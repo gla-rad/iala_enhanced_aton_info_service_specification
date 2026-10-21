@@ -12,8 +12,6 @@ All the above documents are part of G1128 and are explained in that guideline.
 
 The exchange of Enhanced AtoN Information for AtoN Authorities makes use of the IALA S-201 data model, which is outlined in the S-201 data product specification. According to IALA, the S-201 - Aids to Navigation (AtoN) Information [@cite:iala-s201] data product provides a common structure for the exchange of information about AtoNs including metadata like maintenance schedules, equipment type such as battery and bulb types. This includes buoys, beacons, racons, lights, sound signals and AIS. The product specification can be used to exchange AtoN information in a consistent form between Lighthouse Authorities, Hydrographic Offices and other organisations to include commercial and professional agencies.
 
-~~This service specification may be used with the Maritime Connectivity Platform (MCP), where the MCP would provide means of authentication of service providers and service consumers as well as means of service discoverability-~~.
-
 ## Purpose of the Document {#sec:introduction_purpose}
 
 The purpose of this service specification document is to provide a holistic overview of the service and its building blocks in a technology-independent way, according to the G1128 guideline. It describes a well-defined baseline of the service by clearly identifying the service version.
